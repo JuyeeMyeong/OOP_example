@@ -1,98 +1,59 @@
-#include <iostream>
-#include <cstdlib>
+#include <cstdlib> // rand()
 #include <ctime>
+#include <iostream>
+
+#include "Zoo.h"
+#include "Animal.h"
+#include "Dog.h"
+#include "Cat.h"
+#include "Cow.h"
+
 using namespace std;
 
-// -------------------- Animal 클래스 (추상 클래스) --------------------
-class Animal {
-public:
-    virtual void makeSound() = 0;
-    virtual ~Animal() {
-        cout << "Animal deleted." << endl;
-    }
-};
-
-// -------------------- Dog 클래스 --------------------
-class Dog : public Animal {
-public:
-    Dog() { cout << "A dog was created." << endl; }
-    void makeSound() override { cout << "Bow wow!" << endl; }
-    ~Dog() { cout << "The dog was deleted." << endl; }
-};
-
-// -------------------- Cat 클래스 --------------------
-class Cat : public Animal {
-public:
-    Cat() { cout << "A cat was created." << endl; }
-    void makeSound() override { cout << "Meow!" << endl; }
-    ~Cat() { cout << "The cat was deleted." << endl; }
-};
-
-// -------------------- Cow 클래스 --------------------
-class Cow : public Animal {
-public:
-    Cow() { cout << "A cow was created." << endl; }
-    void makeSound() override { cout << "Moo!" << endl; }
-    ~Cow() { cout << "The cow was deleted." << endl; }
-};
-
-// -------------------- Zoo 클래스 --------------------
-class Zoo {
-private:
-    Animal* animals[10];
-    int animalCount;
-
-public:
-    Zoo() : animalCount(0) {}
-
-    void addAnimal(Animal* animal) {
-        if (animalCount >= 10) {
-            cout << "The zoo is full!" << endl;
-            return;
-        }
-        animals[animalCount++] = animal;
-    }
-
-    void performActions() {
-        for (int i = 0; i < animalCount; ++i) {
-            animals[i]->makeSound();
-        }
-    }
-
-    ~Zoo() {
-        for (int i = 0; i < animalCount; ++i) {
-            delete animals[i];
-        }
-        cout << "Zoo was deleted." << endl;
-    }
-};
-
-// -------------------- 랜덤 동물 생성 함수 --------------------
-Animal* createRandomAnimal() {
+// 랜덤 동물을 생성하는 함수
+// - 0, 1, 2 중 하나의 난수를 생성하여 각각 Dog, Cat, Cow 객체 중 하나를 동적으로 생성합니다.
+// - 생성된 객체는 Animal 타입의 포인터로 반환됩니다.
+// - 입력 매개변수: 없음
+// - 반환값: Animal* (생성된 동물 객체의 포인터)
+Animal* createRandomAnimal()
+{
     int random = rand() % 3;
-    switch (random) {
-    case 0: return new Dog();
-    case 1: return new Cat();
+    cout << random << endl;
+    switch (random)
+    {
+    case 0:
+        return new Dog();
+    case 1:
+        return new Cat();
     case 2:
-    default: return new Cow();
+    default:
+        return new Cow();
     }
 }
 
-// -------------------- main 함수 --------------------
-int main() {
-    srand(static_cast<unsigned int>(time(0)));
-
+int main()
+{
     cout << "Welcome to the Zoo!" << endl;
-
-    Zoo zoo;
-    for (int i = 0; i < 8; ++i) {
-        cout << "Creating animal #" << i + 1 << endl;
-        Animal* animal = createRandomAnimal();
-        zoo.addAnimal(animal);
+    Zoo zoo; // 동물원 생성성
+    
+    // 동물원에 동물 8마리를 랜덤으로 추가
+    for (int i = 0; i < 8; i++)
+    {
+        cout << "Animal's being created." << endl;
+        Animal* animal = createRandomAnimal(); // 동물을 랜덤하게 생성
+        zoo.addAnimal(animal); // 동물을 동물원에 넣음
     }
 
-    cout << "\nAll animals will now make their sound!" << endl;
     zoo.performActions();
+
+/*
+    Dog* puppy = new Dog();
+    puppy->makeSound();
+    Cat* kitten = new Cat();
+    kitten->makeSound();
+    Cow* moo = new Cow();
+    moo->makeSound();
+*/
 
     return 0;
 }
