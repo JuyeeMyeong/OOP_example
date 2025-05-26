@@ -1,28 +1,16 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "Build All",
-            "type": "shell",
-            "command": "g++",
-            "args": [
-                "-g",
-                "Main.cpp",
-                "Zoo.cpp",
-                "Animal.cpp",
-                "Dog.cpp",
-                "Cat.cpp",
-                "Cow.cpp",
-                "-o",
-                "main.exe"
-            ],
-              "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": [
-                "$gcc"
-            ]
-        }
-    ]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Make build",
+      "type": "shell",
+      "command": "C:\\msys64\\usr\\bin\\make.exe",
+      "args": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ]
 }
