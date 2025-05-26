@@ -5,9 +5,10 @@ using namespace std;
 
 void Zoo::addAnimal(Animal* animal)
 {
-    if (CountAnimals >= 10)
+    if (CountAnimals >= 10) // 
     {
         cout << "동물원이 꽉 찼습니다!" << endl;
+        return;
     }
 
     animals[CountAnimals++] = animal;
