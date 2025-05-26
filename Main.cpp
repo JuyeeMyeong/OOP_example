@@ -31,12 +31,13 @@ Animal* createRandomAnimal()
 
 int main()
 {
-    cout << "동물원에 어서오세요!" << endl;
+    cout << "Welcome to the Zoo!" << endl;
     Zoo zoo; // 동물원 생성성
     
     // 동물원에 동물 8마리를 랜덤으로 추가
     for (int i = 0; i < 8; i++)
     {
+        cout << "동물이 생성됩니다다." << endl;
         Animal* animal = createRandomAnimal(); // 동물을 랜덤하게 생성
         zoo.addAnimal(animal); // 동물을 동물원에 넣음
     }

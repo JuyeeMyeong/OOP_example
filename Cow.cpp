@@ -5,15 +5,15 @@ using namespace std;
 
 Cow::Cow() 
 {
-    cout << "소가 생성되었습니다." << endl;
+    cout << "A cow was created." << endl;
 }
 
 void Cow::makeSound()
 {
-    cout << "음메!" << endl;
+    cout << "Moo!" << endl;
 }
 
 Cow::~Cow()
 {
-    cout << "소가 소멸되었습니다." << endl;
+    cout << "The cow was deleted." << endl;
 }

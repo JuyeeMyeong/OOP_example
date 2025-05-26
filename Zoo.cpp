@@ -7,7 +7,7 @@ void Zoo::addAnimal(Animal* animal)
 {
     if (CountAnimals >= 10) // 동물원에 동물들이 다 차있을 때때
     {
-        cout << "동물원이 꽉 찼습니다!" << endl;
+        cout << "The zoo's full!" << endl;
         return; // 그냥 return
     }
 
@@ -29,5 +29,7 @@ Zoo::~Zoo() // 동물 객체 메모리 해제
         delete animals[i];
         animals[i] = nullptr;
     }
-    cout << "Zoo가 소멸되었습니다." << endl;
+
+    cout << "Zoo was deleted" << endl;
+    //cout << "Zoo가 소멸되었습니다." << endl;
 }
