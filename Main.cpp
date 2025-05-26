@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "Zoo.h"
+#include "Animal.h"
 #include "Dog.h"
 #include "Cat.h"
 #include "Cow.h"
@@ -17,6 +18,7 @@ using namespace std;
 Animal* createRandomAnimal()
 {
     int random = rand() % 3;
+    cout << random << endl;
     switch (random)
     {
     case 0:
@@ -37,7 +39,7 @@ int main()
     // 동물원에 동물 8마리를 랜덤으로 추가
     for (int i = 0; i < 8; i++)
     {
-        cout << "동물이 생성됩니다다." << endl;
+        cout << "Animal's being created." << endl;
         Animal* animal = createRandomAnimal(); // 동물을 랜덤하게 생성
         zoo.addAnimal(animal); // 동물을 동물원에 넣음
     }

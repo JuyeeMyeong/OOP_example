@@ -5,15 +5,15 @@ using namespace std;
 
 Cat::Cat() 
 {
-    cout << "A cat was created." << endl;
+    cout << "A cat was created" << endl;
 }
 
 void Cat::makeSound()
 {
-    cout << "Meow!" << endl;
+    cout << "Meow" << endl;
 }
 
 Cat::~Cat()
 {
-    cout << "The cat was deleted." << endl;
+    cout << "The cat was deleted" << endl;
 }
