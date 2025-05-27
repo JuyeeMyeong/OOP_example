@@ -1,6 +1,6 @@
 ## 2번 과제 - OOP Summary
 
-** 인코딩 글자깨짐 방지를 위해 아래의 명령어로 main.exe를 실행시켜주세요 **
+**인코딩 글자깨짐 방지를 위해 아래의 명령어로 main.exe를 실행시켜주세요**
 
 ```git bash
 cmd /c "chcp 65001 && .\main.exe"
