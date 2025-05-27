@@ -1,6 +1,7 @@
 #include <cstdlib> // rand()
 #include <ctime>
 #include <iostream>
+#include <Windows.h>
 
 #include "Zoo.h"
 #include "Animal.h"
@@ -33,13 +34,13 @@ Animal* createRandomAnimal()
 
 int main()
 {
+    SetConsoleOutputCP(CP_UTF8);
     cout << "Welcome to the Zoo!" << endl;
-    Zoo zoo; // 동물원 생성성
+    Zoo zoo; // 동물원 생성
     
     // 동물원에 동물 8마리를 랜덤으로 추가
     for (int i = 0; i < 8; i++)
     {
-        cout << "Animal's being created." << endl;
         Animal* animal = createRandomAnimal(); // 동물을 랜덤하게 생성
         zoo.addAnimal(animal); // 동물을 동물원에 넣음
     }

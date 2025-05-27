@@ -2,7 +2,6 @@
 
 class Animal {
 public:
-    Animal();
-    virtual void makeSound();
+    virtual void makeSound() = 0;
     virtual ~Animal();
 };
